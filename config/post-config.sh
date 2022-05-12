@@ -22,7 +22,7 @@ sed -i "s/hawtio.role=admin/hawtio.role=admin,viewer/g" ${CONFIG_INSTANCE_DIR}/e
 echo "### Adding wildcard config to broker config"
 # this searches for the </core> tag in the config at replaces
 # it with the content of the wildcard.xml file
-sed -e '/\/core/r /amq/scripts/wildcard.xml' -e '/\/core/d' ${CONFIG_INSTANCE_DIR}/etc/broker.xml >${CONFIG_INSTANCE_DIR}/etc/broker_new.xml
+sed -e '/\/core/r /amq/scripts/custom-config.xml' -e '/\/core/d' ${CONFIG_INSTANCE_DIR}/etc/broker.xml >${CONFIG_INSTANCE_DIR}/etc/broker_new.xml
 
 echo "### Copying broker_new.xml to  ${CONFIG_INSTANCE_DIR}/etc/broker.xml"
 cp ${CONFIG_INSTANCE_DIR}/etc/broker_new.xml ${CONFIG_INSTANCE_DIR}/etc/broker.xml
